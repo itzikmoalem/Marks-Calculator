@@ -1,10 +1,9 @@
 ;---------------------------Sum of Grades----------------------------;
-;---------Itzik Moalem----------------------------313181638----------;
+;---------------------------Itzik Moalem-----------------------------;
 
 %include "io.inc"
 
 section .data
-
     math db "Enter mark for math: ", 0
     math_percent db "Enter percent for math: ",0
     physics db "Enter mark for physics: ",0
@@ -21,6 +20,7 @@ section .bss
     
 section .text
 global CMAIN
+
 CMAIN:
     mov ebp, esp ; for correct debugging
     mov eax, 0  
@@ -34,11 +34,13 @@ CMAIN:
     PRINT_STRING name
     
 input_data:
+
     PRINT_STRING math
     GET_DEC 4, eax
     mov [marks+esi*4], eax
     PRINT_DEC 4, eax
     NEWLINE
+    
     PRINT_STRING math_percent
     GET_DEC 4, eax
     mov [percent+esi*4], eax
@@ -51,6 +53,7 @@ input_data:
     mov [marks+esi*4], eax
     PRINT_DEC 4, eax
     NEWLINE
+    
     PRINT_STRING phy_percent
     GET_DEC 4, eax
     mov [percent+esi*4], eax
@@ -58,11 +61,13 @@ input_data:
     add ecx, eax
     inc esi
     NEWLINE
+    
     PRINT_STRING comp
     GET_DEC 4, eax
     mov [marks+esi*4], eax
     PRINT_DEC 4, eax
     NEWLINE
+    
     PRINT_STRING comp_percent
     GET_DEC 4, eax
     mov [percent+esi*4], eax
